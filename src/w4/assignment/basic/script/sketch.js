@@ -3,7 +3,4 @@ function setup() {
   background('white');
 }
 
-function draw() {
-  background('black');
-  ellipse(mouseX, mouseY, 50);
-}
+function draw() {}
