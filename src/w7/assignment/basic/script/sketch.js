@@ -1,27 +1,22 @@
-let traffic;
-//traffic은 Traffic의 인스턴스를 저장하는 변수이다. //let ~ : 변수를 만듦
-let infiniteOffset = 80;
+let traffic; // Traffic 객체를 저장할 변수
+let infiniteOffset = 80; // 화면 경계를 조절하기 위한 오프셋 값
 
 function setup() {
-  setCanvasContainer('canvas', 3, 2, true);
-  //캔버스를 설정하는 함수, 'canvas'라는 HTML요소에 그림을 그림. 캔버스의 너비와 높이를 3:2 비율로 고정한다.
-  colorMode(HSL, 360, 100, 100, 100);
-  //컬러 모드를 HSL 모드로 설정하며, 각 구성 요소의 범위를 지정한다.
-  background('white');
-  //캔버스의 컬러를 white 컬러로 설정한다.
-  traffic = new Traffic();
+  setCanvasContainer('canvas', 3, 2, true); // 캔버스 설정 및 크기 조정
+  colorMode(HSL, 360, 100, 100, 100); // 컬러 모드 설정
+  background('white'); // 배경을 흰색으로 설정
+  traffic = new Traffic(); // Traffic 객체 생성
   for (let n = 0; n < 10; n++) {
-    traffic.addVehicle(random(width), random(height));
+    traffic.addVehicle(random(width), random(height)); // 랜덤 위치에 차량 추가
   }
 }
 
 function draw() {
-  background('white');
-  traffic.run();
+  background('white'); // 매 프레임마다 배경을 지우고 다시 그림
+  traffic.run(); // Traffic 객체 실행
 }
 
 function mouseDragged() {
-  // 마우스를 드래그할 때 발생한다.
-  traffic.addVehicle(mouseX, mouseY);
-  //현재 마우스의 위치를 감지한 후 해당 위치에 새로운 vehicles를 추가한다.
+  // 마우스를 드래그할 때 발생하는 이벤트
+  traffic.addVehicle(mouseX, mouseY); // 마우스 위치에 차량 추가
 }
